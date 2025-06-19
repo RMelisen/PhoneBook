@@ -46,6 +46,25 @@ namespace PhoneBook.UI
             AnsiConsole.MarkupLine($"[Bold]See you soon ![/]");
         }
 
+        internal static void AddContact()
+        {
+
+        }
+
+        internal static void ShowContacts()
+        {
+
+        }
+
+        internal static void UpdateContact()
+        {
+
+        }
+
+        internal static void DeleteContact()
+        {
+
+        }
 
         #region Utils
 
