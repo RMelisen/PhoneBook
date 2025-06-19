@@ -1,4 +1,5 @@
-﻿using PhoneBook.UI;
+﻿using PhoneBook.Commons.Classes;
+using PhoneBook.UI;
 
 namespace PhoneBook.Core
 {

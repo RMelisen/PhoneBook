@@ -1,6 +1,7 @@
 ﻿using Spectre.Console;
 using PhoneBook.UI.Commons;
 using PhoneBook.Commons.Enums;
+using PhoneBook.Commons.Classes;
 
 namespace PhoneBook.UI
 {
@@ -53,7 +54,32 @@ namespace PhoneBook.UI
 
         internal static void ShowContacts()
         {
+            List<Contact> contactList = GetAllContacts();
 
+            Table contactTable = new Table();
+            contactTable.Border(TableBorder.Rounded);
+
+            contactTable.Title($"[{UIStyles.NEUTRAL_INDICATOR_COLOR}Bold]Contacts: [/]");
+
+            contactTable.AddColumn($"[{UIStyles.NEUTRAL_INDICATOR_COLOR}]Name[/]");
+            contactTable.AddColumn($"[{UIStyles.NEUTRAL_INDICATOR_COLOR}]Email[/]");
+            contactTable.AddColumn($"[{UIStyles.NEUTRAL_INDICATOR_COLOR}]Phone Number[/]");
+            contactTable.AddColumn($"[{UIStyles.NEUTRAL_INDICATOR_COLOR}]Address[/]");
+
+            foreach (Contact contact in contactList)
+            {
+                contactTable.AddRow(
+                    contact.Name,
+                    contact.Email,
+                    contact.PhoneNumber,
+                    contact.Address
+                );
+            }
+
+            AnsiConsole.MarkupLine($"[{UIStyles.NEUTRAL_INDICATOR_COLOR}Bold]Contacts: [/]");
+            AnsiConsole.Write(contactTable);
+
+            PressKeyToContinue();
         }
 
         internal static void UpdateContact()
